@@ -1,0 +1,11 @@
+.home {
+    height:100vh;
+}
+.products:hover {
+    cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+    .products {
+        align-items: center;
+    }
+}

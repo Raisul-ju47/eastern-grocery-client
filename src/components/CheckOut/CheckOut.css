@@ -1,0 +1,23 @@
+.checkout{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 150px;
+}
+.checkout img {
+    width:30%;
+}
+@media only screen and (max-width: 600px) {
+    .checkout{
+        display: flex;
+        flex-direction:column;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 150px;
+        padding-bottom: 20px;
+    }
+    .checkout img {
+        padding-top: 20px;
+        width:50%;
+    }
+}
