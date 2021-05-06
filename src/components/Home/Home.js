@@ -7,7 +7,7 @@ import Header from '../Header/Header';
 const Home = () => {
     const { value, value2 } = useContext(UserContext);
     const [products, setProducts] = value;
-   
+
 
     return (
         <div className="home">

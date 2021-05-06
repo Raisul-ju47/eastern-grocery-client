@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { Redirect } from 'react-router';
 
 const AddProducts = () => {
 
@@ -17,7 +16,7 @@ const AddProducts = () => {
             price: data.price,
             imageURL: imageURL
         }
-        const url = `http://localhost:5000/addProduct`;
+        const url = `https://mighty-hollows-77897.herokuapp.com/addProduct`;
 
         console.log(productData);
         fetch(url, {

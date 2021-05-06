@@ -9,7 +9,7 @@ const ManageProduct = () => {
     const deleteProduct = (event, id) => {
         console.log(event.target.parentNode.parentNode);
         console.log(id);
-        fetch(`http://localhost:5000/delete/${id}`, {
+        fetch(`https://mighty-hollows-77897.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

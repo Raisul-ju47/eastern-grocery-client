@@ -24,17 +24,33 @@ function App() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/products')
+    fetch('https://mighty-hollows-77897.herokuapp.com/products')
       .then(res => res.json())
-      .then(data => setProducts(data))
+      .then(data => setProducts(data));
   }, []);
 
-  const [loggedInUser, setLoggedInUser] = useState({})
+  const [loggedInUser, setLoggedInUser] = useState({});
+
+
+  const toggleSpinner = (show) => {
+    const spinner = document.getElementById('loading-spinner');
+    if(show) {
+      spinner.classList.remove('d-none');
+    }
+    else{
+      spinner.classList.add('d-none');
+    }   
+  }
 
   return (
     <UserContext.Provider value={{ value: [products, setProducts], value2: [loggedInUser, setLoggedInUser]}}>
       <Router>
         <Header></Header>
+        <div className="d-flex justify-content-center">
+                <div id="loading-spinner" class="spinner-border d-none" role="status">
+                    <span class="visually-hidden"></span>
+                </div>
+            </div>
         <Switch>
           <Route exact path="/">
             <Home />
@@ -42,15 +58,15 @@ function App() {
           <Route exact path="/home">
             <Home />
           </Route>
-          <Route path="/orders">
+          <PrivateRoute path="/orders">
             <Orders />
-          </Route>
+          </PrivateRoute>
           <PrivateRoute path="/product/:id">
             <CheckOut/>
           </PrivateRoute>
-          <Route path="/admin">
+          <PrivateRoute path="/admin">
             <Admin />
-          </Route>
+          </PrivateRoute>
           <Route path="/addProducts">
             <AddProducts />
           </Route> 
